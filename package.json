@@ -1,0 +1,44 @@
+{
+  "name": "nekokuma-app",
+  "version": "0.1.0",
+  "description": "naisho",
+  "main": "index.js",
+  "scripts": {
+    "dep": "gulp dep",
+    "start": "gulp develop",
+    "g": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nekokuma1/nekokuma-apps.git"
+  },
+  "keywords": [
+    "chaappp"
+  ],
+  "author": "NekoKuma",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nekokuma1/nekokuma-apps/issues"
+  },
+  "homepage": "https://github.com/nekokuma1/nekokuma-apps#readme",
+  "devDependencies": {
+    "babel-core": "^6.13.2",
+    "browser-sync": "^2.14.0",
+    "browserify": "^13.1.0",
+    "gulp": "^3.9.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-stylus": "^2.5.0",
+    "gulp-uglify": "^2.0.0",
+    "riotify": "^1.0.1",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "bootstrap-styl": "^5.0.7",
+    "riot": "^2.5.0",
+    "riot-router": "^0.8.0",
+    "riotcontrol": "0.0.3"
+  }
+}
