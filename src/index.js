@@ -12,5 +12,6 @@ riot.router.routes([
     new NotFoundRoute({tag: 'not-found'})
 ]);
 
+
 riot.mount('*');
 riot.router.start();
