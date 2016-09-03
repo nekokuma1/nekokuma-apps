@@ -1,11 +1,18 @@
 <my-createuser>
-    <p>aa</p>
-    <form>
+    <p>{test}</p>
+    <form onsubmit={ add }>
         <input name="txtMessage">
         <button >GO</button>
     </form>
 
     <script>
-    var a = 1;
+    var self = this;
+    
+    self.test = 'kame';
+
+    add(e) {
+        self.test = this.txtMessage.value; 
+        this.txtMessage.value = '';
+    }
     </script>
 </my-createuser>
