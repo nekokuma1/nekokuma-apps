@@ -1,7 +1,7 @@
 <my-messages>
     <p>メッセージ</p>
     <form onsubmit={ add }>
-        <input name="txtName">
+        <input name="txtMessage">
         <button >GO</button>
     </form>
 
@@ -12,7 +12,8 @@
     var self = this;
 
     add(e) {
-        this.txtName.value = '';
+        SampleAction.SetNekoMessage(this.txtMessage.value);
+        this.txtMessage.value = '';
     }
     </script>
 </my-messages>

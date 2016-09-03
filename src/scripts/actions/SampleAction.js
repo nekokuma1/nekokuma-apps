@@ -1,10 +1,10 @@
 var RiotControl = require('riotcontrol');
-var NekoStore = require('../stores/MessageStore');
+var MessageStore = require('../stores/MessageStore');
 
 var Action = {};
 
-Action.SetNekoName = function(name){
-    RiotControl.trigger(NekoStore.Action.SetName, name);
+Action.SetNekoMessage = function(message){
+    RiotControl.trigger(MessageStore.Action.SetMessage, message);
 };
 
 module.exports = Action;
