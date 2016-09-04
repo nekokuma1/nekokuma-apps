@@ -1,11 +1,16 @@
 <my-messages>
     <p>メッセージ</p>
-    <ul>
-        <li style="list-style: none;" each={ messages }>{ message }</li>
-    </ul>
+    <div class="panel panel-default">
+        <div class="panel-heading">Let's Talk♬</div>
+        <div class="panel-body">
+            <ul>
+                <li style="list-style: none; margin-left: -20px;" each={ messages }>{ message }</li>
+            </ul>
+        </div>
+    </div>
     <form onsubmit={ add }>
         <input name="txtMessage">
-        <button>GO #{ messages.length + 1 }</button>
+        <button>GO</button>
     </form>
 
     <script>
@@ -21,8 +26,10 @@
     });
 
     add(e) {
-        var message = e.target[0]
-        SampleAction.SetMessage(message.value);
+        //- var message = e.target[0];
+        //- SampleAction.SetMessage(message.value); 
+        var message = this.txtMessage.value; 
+        SampleAction.SetMessage(message);
         this.txtMessage.value = '';
     }
     </script>
