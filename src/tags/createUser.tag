@@ -15,9 +15,16 @@
     
     self.user = UserStore.get();
 
+    RiotControl.on(UserStore.Action.Changed, function(info){
+        self.user = info;
+        self.update();
+    });
+
     upd(e) {
-        var m = util.getModel(this);
+        console.log(e);
+        var m = util.getModel(e.target);
         UserAction.SetUserInfo(m);
+        util.clearForm(e.target);
     }
     </script>
 </my-createuser>

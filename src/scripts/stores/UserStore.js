@@ -6,7 +6,7 @@ var Store = function (){
     var self = this;
 
    self.__model = {
-       name:"",
+       name:'',
        group:[]
    };
    self.get = function(){ return self.__model; };
@@ -17,13 +17,22 @@ var Store = function (){
    };
 
 
-   self.on(self.Action.SetInfo,function(info){       
+   self.on(self.Action.SetInfo,function(info){
+       var changeData = {};  // 変更点を収集
        for (var key in self.__model) {
            if(key in info){
-               self.__model[key] = info[key];
+               changeData[key] = info[key];
            }
        }
-       self.trigger(self.Action.Changed, self.get());
+
+       // api にて 更新したとして
+       setTimeout(function() {
+           for (var key in changeData) {
+               self.__model[key] = changeData[key];
+           }
+           self.trigger(self.Action.Changed, self.get());    
+       }, 1000);
+       
    });
 
 }

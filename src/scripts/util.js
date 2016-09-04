@@ -2,13 +2,26 @@ var util = {};
 
 util.getModel = function(form){
     var m = {};
-    for(key in form){
-        if(key.indexOf("__") == 0){
-            var n = key.replace( /__/g , "" );
-            m[n] = form[key].value;
+    
+    for (var index = 0; index < form.length; index++) {
+        var input = form[index];
+        if(input.name.indexOf("__") == 0){
+            var n = input.name.replace( /__/g , "" );
+            m[n] = input.value;
         }
     }
     return m;
 };
+
+util.clearForm = function(form){
+    for (var index = 0; index < form.length; index++) {
+        var input = form[index];
+        if(input.name.indexOf("__") == 0){
+            var n = input.name.replace( /__/g , "" );
+            input.value = '';
+        }
+    }
+};
+
 
 module.exports = util;
