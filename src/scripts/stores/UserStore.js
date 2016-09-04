@@ -30,7 +30,7 @@ var Store = function (){
            for (var key in changeData) {
                self.__model[key] = changeData[key];
            }
-           self.trigger(self.Action.Changed, self.get());    
+           self.trigger(self.Action.Changed);    
        }, 1000);
        
    });

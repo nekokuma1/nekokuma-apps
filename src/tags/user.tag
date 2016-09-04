@@ -1,4 +1,4 @@
-<my-createuser>
+<my-user>
     <p>{user.name}</p>
     <form onsubmit={ upd }>
         <input name="__name">
@@ -15,8 +15,8 @@
     
     self.user = UserStore.get();
 
-    RiotControl.on(UserStore.Action.Changed, function(info){
-        self.user = info;
+    RiotControl.on(UserStore.Action.Changed, function(){
+        self.user = UserStore.get();
         self.update();
     });
 
@@ -27,4 +27,4 @@
         util.clearForm(e.target);
     }
     </script>
-</my-createuser>
+</my-user>

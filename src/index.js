@@ -5,7 +5,7 @@ require('./tags/index.tag');
 require('./tags/not-found.tag');
 
 require('./tags/messages.tag');
-require('./tags/createUser.tag');
+require('./tags/user.tag');
 
 var DefaultRoute = riot.router.DefaultRoute; 
 var NotFoundRoute = riot.router.NotFoundRoute; 
@@ -15,7 +15,7 @@ riot.router.routes([
     new DefaultRoute({tag: 'my-index'}),
     new NotFoundRoute({tag: 'not-found'}),
     new Route({path:'/messages', tag: 'my-messages'}),
-    new Route({path:'/createUser', tag: 'my-createuser'})
+    new Route({path:'/user', tag: 'my-user'})
 ]);
 
 riot.mount('*');
