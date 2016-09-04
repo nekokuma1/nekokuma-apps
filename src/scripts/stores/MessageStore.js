@@ -5,7 +5,7 @@ var Store = function (){
     riot.observable(this);
     var self = this;
 
-   self.Message = [];
+   self.Messages = [];
 
    self.Action = {
        SetMessage: "MessageStore_SetMessage",
@@ -13,8 +13,8 @@ var Store = function (){
    };
    //メッセージを受け取ってアクションする
    self.on(self.Action.SetMessage,function(message){
-       self.Message.push(message);
-       self.trigger(self.Action.Changed, messages);
+       self.Messages.push({ message: message });
+       self.trigger(self.Action.Changed, self.Messages);
    });
 
 }

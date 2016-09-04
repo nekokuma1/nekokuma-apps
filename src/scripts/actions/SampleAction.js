@@ -3,7 +3,7 @@ var MessageStore = require('../stores/MessageStore');
 
 var Action = {};
 
-Action.SetNekoMessage = function(message){
+Action.SetMessage = function(message){
     RiotControl.trigger(MessageStore.Action.SetMessage, message);
 };
 
