@@ -13,7 +13,7 @@ var Store = function (){
    };
    //メッセージを受け取ってアクションする
    self.on(self.Action.SetMessage,function(message){
-       self.Messages.push(message);
+       self.Messages.push({ message: message });
        self.trigger(self.Action.Changed, self.Messages);
    });
 

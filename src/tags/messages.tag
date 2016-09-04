@@ -1,9 +1,11 @@
 <my-messages>
     <p>メッセージ</p>
-    <p>{messages}</p>
+    <ul>
+        <li style="list-style: none;" each={ messages }>{ message }</li>
+    </ul>
     <form onsubmit={ add }>
         <input name="txtMessage">
-        <button >GO</button>
+        <button>GO #{ messages.length + 1 }</button>
     </form>
 
     <script>
@@ -13,16 +15,14 @@
     var self = this;
 
     self.messages = [];
-    self.messages.push("a");
-    self.messages.push("b");
-    self.messages.push("c");
 
     RiotControl.on(MessageStore.Action.Changed, function(messages){
         self.messages = messages;
     });
 
     add(e) {
-        SampleAction.SetMessage(this.txtMessage.value);
+        var message = e.target[0]
+        SampleAction.SetMessage(message.value);
         this.txtMessage.value = '';
     }
     </script>
