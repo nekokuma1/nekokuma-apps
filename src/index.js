@@ -4,6 +4,7 @@ require('riot-router');
 require('./tags/index.tag');
 require('./tags/not-found.tag');
 
+require('./tags/alert.tag');
 require('./tags/messages.tag');
 require('./tags/user.tag');
 
