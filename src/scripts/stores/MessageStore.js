@@ -7,14 +7,25 @@ var Store = function (){
 
    self.Messages = [];
 
+   self.__model = {
+
+       messages:[]
+   };
+
+   self.get = function(){return self.__model;};
+
    self.Action = {
        SetMessage: "MessageStore_SetMessage",
        Changed: "MessageStore_Changed"
    };
    //メッセージを受け取ってアクションする
-   self.on(self.Action.SetMessage,function(message){
-       self.Messages.push({ message: message });
-       self.trigger(self.Action.Changed, self.Messages);
+   self.on(self.Action.SetMessage,function(info){
+
+       setTimeout(function() {
+        self.__model.messages.push(info);
+        self.trigger(self.Action.Changed);    
+       }, 1000);
+
    });
 
 }

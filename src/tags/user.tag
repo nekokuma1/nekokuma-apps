@@ -11,8 +11,17 @@
                     
                         <form onsubmit={ upd }>
                             <div class="form-group">
-                                <label>UserName</label>
-                                <input type="text" class="form-control" name="__name" value='{user.name}'/>
+                                <label>UserName={user.name}</label>
+                                <input type="text" class="form-control" name="__name" value=''/>
+                            </div>
+                            <div class="form-group">
+                                <label>Bikou={user.bikou}</label>
+                                <input type="text" class="form-control" name="__bikou" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Ahiru={user.ahiru}</label>
+                                <input type="text" class="form-control" name="__ahiru" />
                             </div>
 
                             <button class='btn btn-primary'>Update</button>
@@ -36,12 +45,13 @@
     RiotControl.on(UserStore.Action.Changed, function(){
         self.user = UserStore.get();
         self.update();
-        alert("updated");
+       // alert("updated");
     });
 
     upd(e) {
         console.log(e);
         var m = util.getModel(e.target);
+        console.log(m);
         UserAction.SetUserInfo(m);
         //util.clearForm(e.target);
     }

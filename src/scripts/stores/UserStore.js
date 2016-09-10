@@ -7,6 +7,8 @@ var Store = function (){
 
    self.__model = {
        name:'kame',
+       bikou:'',
+       ahiru:'',
        group:[]
    };
    self.get = function(){ return self.__model; };
@@ -31,7 +33,7 @@ var Store = function (){
                self.__model[key] = changeData[key];
            }
            RiotControl.trigger(self.Action.Changed);    
-       }, 1000);
+       }, 2000);
        
    });
 

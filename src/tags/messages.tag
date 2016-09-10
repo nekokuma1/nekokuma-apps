@@ -9,28 +9,34 @@
         </div>
     </div>
     <form onsubmit={ add }>
-        <input name="txtMessage">
+        <input name="__message">
         <button>GO</button>
     </form>
 
     <script>
     var RiotControl = require('riotcontrol');
+    var util = require('../scripts/util');
     var MessageStore = require('../scripts/stores/MessageStore');
     var SampleAction = require('../scripts/actions/SampleAction');
     var self = this;
 
-    self.messages = [];
+    self.messages = MessageStore.get().messages;
 
-    RiotControl.on(MessageStore.Action.Changed, function(messages){
-        self.messages = messages;
+    RiotControl.on(MessageStore.Action.Changed, function(){
+        self.messages = MessageStore.get().messages;
+        self.update();
     });
 
     add(e) {
         //- var message = e.target[0];
         //- SampleAction.SetMessage(message.value); 
-        var message = this.txtMessage.value; 
-        SampleAction.SetMessage(message);
-        this.txtMessage.value = '';
+        //- var message = this.txtMessage.value; 
+        //- SampleAction.SetMessage(message);
+        //- this.txtMessage.value = '';
+
+        var m = util.getModel(e.target);
+        SampleAction.SetMessage(m);
+        util.clearForm(e.target);
     }
     </script>
 </my-messages>
