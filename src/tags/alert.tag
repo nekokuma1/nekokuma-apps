@@ -1,19 +1,14 @@
 <my-alert>
-    <div class="alert alert-warning" if={opts.on == 1}>
+    <div class="alert alert-warning" if={visible}>
         <button type="button" class="close" onclick={ close }>&times;</button>
-        {m}
+        {opts.m}
     </div>
 
     <script>
     var self = this;
-
-    self.on = opts.on;
-    self.m = opts.m;
-
+    self.visible = opts.visible;
     close(e){
-        self.on = 0;
-        opts.on = 0;
-        this.update();
+        self.visible = false;
     }
     </script>
 </my-alert>

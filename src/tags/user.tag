@@ -1,6 +1,6 @@
 <my-user>
 
-    <my-alert on='1' m='hhg'></my-alert>
+    <my-alert visible='{kame}' m='hhg'></my-alert>
 
     <div class="container-fluid">
         <div class="row">
@@ -41,11 +41,16 @@
     var self = this;
     
     self.user = UserStore.get();
+    self.kame = true;
 
     RiotControl.on(UserStore.Action.Changed, function(){
         self.user = UserStore.get();
+        
+        self.kame = true;
         self.update();
        // alert("updated");
+       
+
     });
 
     upd(e) {
