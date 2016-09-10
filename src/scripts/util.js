@@ -1,3 +1,5 @@
+var AlertStore = require('./stores/AlertStore');
+
 var util = {};
 
 util.getModel = function(form){
@@ -23,5 +25,8 @@ util.clearForm = function(form){
     }
 };
 
+util.alert = function(m){
+    AlertStore.trigger(AlertStore.Action.Add, m);
+};
 
 module.exports = util;

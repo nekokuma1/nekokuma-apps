@@ -39,6 +39,7 @@
     "bootstrap-styl": "^5.0.7",
     "riot": "^2.6.0",
     "riot-router": "^0.8.0",
-    "riotcontrol": "0.0.3"
+    "riotcontrol": "0.0.3",
+    "whatwg-fetch": "^1.0.0"
   }
 }

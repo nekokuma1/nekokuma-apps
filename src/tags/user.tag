@@ -1,7 +1,4 @@
 <my-user>
-
-    <my-alert visible='{kame}' m='hhg'></my-alert>
-
     <div class="container-fluid">
         <div class="row">
             <div class='col-md-6'>
@@ -37,26 +34,23 @@
     var util = require('../scripts/util');
     var UserStore = require('../scripts/stores/UserStore');
     var UserAction = require('../scripts/actions/UserAction');
+    var SampleAction = require('../scripts/actions/SampleAction');
+
 
     var self = this;
     
     self.user = UserStore.get();
-    self.kame = true;
-
-    RiotControl.on(UserStore.Action.Changed, function(){
-        self.user = UserStore.get();
-        
-        self.kame = true;
-        self.update();
-       // alert("updated");
-       
-
+    
+    self.on('mount', function(){
+        UserStore.on(UserStore.Action.Changed, function(){
+            self.user = UserStore.get();
+            util.alert("added:" + self.user.name);
+            self.update();
+        });
     });
 
     upd(e) {
-        console.log(e);
         var m = util.getModel(e.target);
-        console.log(m);
         UserAction.SetUserInfo(m);
         //util.clearForm(e.target);
     }

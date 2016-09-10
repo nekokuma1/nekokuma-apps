@@ -1,5 +1,6 @@
 var riot = require('riot');
 require('riot-router');
+require('whatwg-fetch');
 
 require('./tags/index.tag');
 require('./tags/not-found.tag');

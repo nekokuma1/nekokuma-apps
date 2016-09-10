@@ -32,8 +32,20 @@ var Store = function (){
            for (var key in changeData) {
                self.__model[key] = changeData[key];
            }
+
+        //    fetch('/users.json')
+        //     .then(function(response) {
+        //         return response.json()
+        //     })
+        //     .then(function(json) {
+        //         console.log('parsed json', json.aa)
+        //     })
+        //     .catch(function(ex) {
+        //         console.log('parsing kame failed', ex)
+        //     });
+
            RiotControl.trigger(self.Action.Changed);    
-       }, 2000);
+       }, 0);
        
    });
 
