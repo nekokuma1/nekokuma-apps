@@ -44,7 +44,7 @@ var Store = function (){
         //         console.log('parsing kame failed', ex)
         //     });
 
-           RiotControl.trigger(self.Action.Changed);    
+           self.trigger(self.Action.Changed);    
        }, 0);
        
    });

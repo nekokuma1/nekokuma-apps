@@ -6,13 +6,11 @@
 
     <script>
     var self = this;
-    var RiotControl = require('riotcontrol');
     var AlertStore = require('../scripts/stores/AlertStore');
-
 
     self.alerts = AlertStore.get();
 
-    RiotControl.on(AlertStore.Action.Changed, function(){
+    AlertStore.on(AlertStore.Action.Changed, function(){
         self.alerts = AlertStore.get();
         self.update();
     });

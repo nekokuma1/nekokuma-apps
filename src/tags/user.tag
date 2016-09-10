@@ -34,19 +34,16 @@
     var util = require('../scripts/util');
     var UserStore = require('../scripts/stores/UserStore');
     var UserAction = require('../scripts/actions/UserAction');
-    var SampleAction = require('../scripts/actions/SampleAction');
-
 
     var self = this;
     
     self.user = UserStore.get();
     
-    self.on('mount', function(){
-        UserStore.on(UserStore.Action.Changed, function(){
-            self.user = UserStore.get();
-            util.alert("added:" + self.user.name);
-            self.update();
-        });
+    
+    RiotControl.on(UserStore.Action.Changed, function(){
+        self.user = UserStore.get();
+        util.alertAuto("added:" + self.user.name);
+        self.update();
     });
 
     upd(e) {

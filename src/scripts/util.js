@@ -28,5 +28,7 @@ util.clearForm = function(form){
 util.alert = function(m){
     AlertStore.trigger(AlertStore.Action.Add, m);
 };
-
+util.alertAuto = function(m){
+    AlertStore.trigger(AlertStore.Action.Add, m, {t:3000});
+};
 module.exports = util;

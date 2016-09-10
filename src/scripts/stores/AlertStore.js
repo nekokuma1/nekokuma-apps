@@ -17,12 +17,19 @@ var Store = function (){
    };
 
    
-   self.on(self.Action.Add,function(message){
+   self.on(self.Action.Add,function(message, opt){
        var info = {};
        info.id = self.ids++;
        info.m = message;
        self.alerts.push(info);
-       RiotControl.trigger(self.Action.Changed);       
+       if(opt){
+           if("t" in opt){
+               setTimeout(function() {
+                   self.trigger(self.Action.Remove, info.id);
+               }, opt.t);
+           }
+       }
+       self.trigger(self.Action.Changed);
    });
 
    self.on(self.Action.Remove,function(id){
@@ -31,7 +38,7 @@ var Store = function (){
                self.alerts.splice(index, 1);
            }
        }
-       RiotControl.trigger(self.Action.Changed);       
+       self.trigger(self.Action.Changed);       
    });
 
 }
