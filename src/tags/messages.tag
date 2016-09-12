@@ -1,4 +1,20 @@
 <my-messages>
+
+<style>
+body { padding-bottom: 70px; }
+</style>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <form class="navbar-form navbar-left" onsubmit={ add }>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="何してる？" name="__message">
+                    <button class="btn btn-info btn-sm">GO</button>
+                </div>
+            </form>
+    </div>
+    </nav>
+
     <p>メッセージ</p>
     <div class="panel panel-default">
         <div class="panel-heading">Let's Talk♬</div>
@@ -8,10 +24,7 @@
             </ul>
         </div>
     </div>
-    <form onsubmit={ add }>
-        <input name="__message">
-        <button>GO</button>
-    </form>
+
 
     <script>
     var RiotControl = require('riotcontrol');
