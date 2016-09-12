@@ -7,8 +7,6 @@ var Store = function (){
 
    self.__model = {
        name:'kame',
-       bikou:'',
-       ahiru:'',
        group:[]
    };
    self.get = function(){ return self.__model; };
