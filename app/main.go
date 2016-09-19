@@ -11,8 +11,10 @@ import (
 
 func init() {
 	http.HandleFunc("/", tmplHandler)
+	http.HandleFunc("/index/", homeHandler)
 	http.HandleFunc("/api/", apiHandler)
 	http.HandleFunc("/login/", loginHandler)
+	http.HandleFunc("/logout/", logoutHandler)
 }
 
 func tmplHandler(w http.ResponseWriter, r *http.Request) {
@@ -22,7 +24,19 @@ func tmplHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	ctx := appengine.NewContext(r)
+	u := user.Current(ctx)
+	if u == nil {
+		http.Redirect(w, r, "/index/", http.StatusFound)
+		return
+	}
+
 	tpl := template.Must(template.ParseFiles("template/index.html"))
+	tpl.Execute(w, "")
+}
+
+func homeHandler(w http.ResponseWriter, r *http.Request) {
+	tpl := template.Must(template.ParseFiles("template/home.html"))
 	tpl.Execute(w, "")
 }
 
@@ -38,14 +52,18 @@ func errorHandler(w http.ResponseWriter, r *http.Request, status int) {
 }
 
 func loginHandler(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-type", "text/html; charset=utf-8")
+	//w.Header().Set("Content-type", "text/html; charset=utf-8")
 	ctx := appengine.NewContext(r)
 	u := user.Current(ctx)
 	if u == nil {
-		url, _ := user.LoginURL(ctx, "/#/hehehe/kame")
-		fmt.Fprintf(w, `<a href="%s">Sign in or register</a>`, url)
+		url, _ := user.LoginURL(ctx, "/#/")
+		http.Redirect(w, r, url, http.StatusFound)
 		return
 	}
+	http.Redirect(w, r, "/#/", http.StatusFound)
+}
+func logoutHandler(w http.ResponseWriter, r *http.Request) {
+	ctx := appengine.NewContext(r)
 	url, _ := user.LogoutURL(ctx, "/")
-	fmt.Fprintf(w, `Welcome, %s! (<a href="%s">sign out</a>)`, u, url)
+	http.Redirect(w, r, url, http.StatusFound)
 }

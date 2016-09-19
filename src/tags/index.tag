@@ -1,9 +1,9 @@
 <my-index>
 
-    <p>ログイン</p>
-
-    <p>test</p>
-
+    <a href='/logout'>ログアウトしたい人はこちらです</a>
+    <br>
+    <br>
+    
     <ul>
         <li>
             <a href='/#/messages'>message</a>    

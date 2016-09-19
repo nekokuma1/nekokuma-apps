@@ -31,16 +31,16 @@ var Store = function (){
                self.__model[key] = changeData[key];
            }
 
-        //    fetch('/users.json')
-        //     .then(function(response) {
-        //         return response.json()
-        //     })
-        //     .then(function(json) {
-        //         console.log('parsed json', json.aa)
-        //     })
-        //     .catch(function(ex) {
-        //         console.log('parsing kame failed', ex)
-        //     });
+           fetch('/api/users?a=b')
+            .then(function(response) {
+                return response.json()
+            })
+            .then(function(json) {
+                console.log('parsed json', json.aa)
+            })
+            .catch(function(ex) {
+                console.log('parsing kame failed', ex)
+            });
 
            self.trigger(self.Action.Changed);    
        }, 0);
