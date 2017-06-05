@@ -6,8 +6,8 @@ body { padding-bottom: 70px; }
     <div class="panel panel-default">
         <div class="panel-heading">Let's Talk♬</div>
         <div class="panel-body pre-scrollable " name="_s_message">
-            <ul class="list-unstyled">
-                <li each={ messages }>{ message }</li>
+            <ul>
+                <li style="list-style: none; margin-left: -20px;" each={ messages }>{ message }</li>
             </ul>
         </div>
     </div>
